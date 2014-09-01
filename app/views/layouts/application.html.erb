@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TutorApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+   <div >
+        <h1>Account</h1>
+        <% if user_signed_in? %>
+         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
+        <% end %>
+      </div>
+      
+       <div >
+          <div class="notice">
+            <% if notice %>
+             <p id="notice"><%= notice %></p>
+            <% end %>
+           </div>
+           <div class="alert">
+           <% if alert %>
+               <p id="alert"><%= alert %></p>
+             <% end %>
+           </div>
+        </div>
+
+<%= yield %>
+
+</body>
+</html>
