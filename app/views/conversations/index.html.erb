@@ -17,7 +17,7 @@
  
     <%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
   
-    <%= link_to "Delete", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post', data: { confirm: 'yes?' } %>
+    <%= link_to "Delete", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post', data: { confirm: 'yes to delete the conversation thread and messages?' } %>
 
 <br>
 <% end %>

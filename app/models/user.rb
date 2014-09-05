@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
    has_many :student_request, :class_name => 'Proposal', :foreign_key =>  'tutor_request_id'
    has_many :tutor_request, :class_name => 'Proposal', :foreign_key =>  'student_request_id'
 
+   has_many :enquiries
+
    enum role: [:tutor, :student, :both]
 
    ROLE_OPTIONS = %w(tutor student)
@@ -20,5 +22,8 @@ class User < ActiveRecord::Base
 
    def mailboxer_email(object)
       email
+   end
+
+   def send_message
    end
 end

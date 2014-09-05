@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :enquiries
+
   resources :proposals
 
   devise_for :users, :path_prefix => 'account' #, skip: [:registrations] #, controllers: {sessions: "users_sessions"}
