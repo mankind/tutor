@@ -1,0 +1,53 @@
+<%= form_for(@tutor_profile) do |f| %>
+  <% if @tutor_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tutor_profile.errors.count, "error") %> prohibited this tutor_profile from being saved:</h2>
+
+      <ul>
+      <% @tutor_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :university %><br>
+    <%= f.text_field :university %>
+  </div>
+  <div class="field">
+    <%= f.label :degree_subject %><br>
+    <%= f.text_field :degree_subject %>
+  </div>
+  <div class="field">
+    <%= f.label :teaching_subject %><br>
+    <%= f.text_field :teaching_subject %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :about_myself %><br>
+    <%= f.text_field :about_myself %>
+  </div>
+  <div class="field">
+    <%= f.label :tutoring_approach %><br>
+    <%= f.text_area :tutoring_approach %>
+  </div>
+  <div class="field">
+    <%= f.label :teaching_experience %><br>
+    <%= f.text_area :teaching_experience %>
+  </div>
+  <div class="field">
+    <%= f.label :extracurricular_interests %><br>
+    <%= f.text_area :extracurricular_interests %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

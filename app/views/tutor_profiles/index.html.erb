@@ -1,0 +1,41 @@
+<h1>Listing tutor_profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>University</th>
+      <th>Degree subject</th>
+      <th>Teaching subject</th>
+      <th>Location</th>
+      <th>About myself</th>
+      <th>Tutoring approach</th>
+      <th>Teaching experience</th>
+      <th>Extracurricular interests</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutor_profiles.each do |tutor_profile| %>
+      <tr>
+        <td><%= tutor_profile.user.name %></td>
+        <td><%= tutor_profile.university %></td>
+        <td><%= tutor_profile.degree_subject %></td>
+        <td><%= tutor_profile.teaching_subject %></td>
+        <td><%= tutor_profile.location %></td>
+        <td><%= tutor_profile.about_myself %></td>
+        <td><%= tutor_profile.tutoring_approach %></td>
+        <td><%= tutor_profile.teaching_experience %></td>
+        <td><%= tutor_profile.extracurricular_interests %></td>
+        <td><%= link_to 'Show', tutor_profile %></td>
+        <td><%= link_to 'Edit', edit_tutor_profile_path(tutor_profile) %></td>
+        <td><%= link_to 'Destroy', tutor_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutor profile', new_tutor_profile_path %>

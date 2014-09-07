@@ -4,16 +4,18 @@ one:
   subject: MyString
   level: MyString
   location: MyString
-  start_date: 2014-09-05 15:09:29
   duration: MyString
+  start_date: MyString
+  tuition_fee: MyString
   note: MyText
-  user_id: 
+  availability: 1
 
 two:
   subject: MyString
   level: MyString
   location: MyString
-  start_date: 2014-09-05 15:09:29
   duration: MyString
+  start_date: MyString
+  tuition_fee: MyString
   note: MyText
-  user_id: 
+  availability: 1

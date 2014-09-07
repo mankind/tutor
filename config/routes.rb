@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  resources :enquiries
-
-  resources :proposals
-
+ 
   devise_for :users, :path_prefix => 'account' #, skip: [:registrations] #, controllers: {sessions: "users_sessions"}
   
   #:path changes /users to /accounts
@@ -13,10 +10,22 @@ Rails.application.routes.draw do
 
   resources :conversations do
     member do
-      post 'trash'
+      post :trash
       post :reply
     end
   end
+
+  resources :tutor_profiles
+  resources :enquiries
+  resources :tutorships  do
+    collection do
+      post :invite_to_tutorship, as: 'invite'
+      post :accept_tutorship, as:  'accept'
+      get :tutorpage
+      get :studentpage
+    end
+  end
+
 
   root to: "conversations#index"
 

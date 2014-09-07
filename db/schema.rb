@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831195401) do
+ActiveRecord::Schema.define(version: 20140907081640) do
+
+  create_table "enquiries", force: true do |t|
+    t.string   "subject"
+    t.string   "level"
+    t.string   "location"
+    t.string   "duration"
+    t.string   "start_date"
+    t.string   "tuition_fee"
+    t.text     "note"
+    t.integer  "user_id"
+    t.integer  "availability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id"
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
     t.integer "unsubscriber_id"
@@ -66,20 +82,47 @@ ActiveRecord::Schema.define(version: 20140831195401) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
 
-  create_table "proposals", force: true do |t|
-    t.integer  "tutor_request_id"
-    t.integer  "student_request_id"
-    t.text     "message"
-    t.integer  "status"
+  create_table "tutor_profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "university"
+    t.string   "degree_subject"
+    t.string   "teaching_subject"
+    t.string   "location"
+    t.string   "about_myself"
+    t.text     "tutoring_approach"
+    t.text     "teaching_experience"
+    t.text     "extracurricular_interests"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "proposals", ["student_request_id"], name: "index_proposals_on_student_request_id"
-  add_index "proposals", ["tutor_request_id"], name: "index_proposals_on_tutor_request_id"
+  add_index "tutor_profiles", ["user_id"], name: "index_tutor_profiles_on_user_id"
+
+  create_table "tutorial_profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.text     "about_myself"
+    t.text     "teaching_experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tutorial_profiles", ["user_id"], name: "index_tutorial_profiles_on_user_id"
+
+  create_table "tutorships", force: true do |t|
+    t.integer  "tutor_id"
+    t.integer  "student_id"
+    t.integer  "status",     default: 0
+    t.text     "message"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tutorships", ["student_id"], name: "index_tutorships_on_student_id"
+  add_index "tutorships", ["tutor_id"], name: "index_tutorships_on_tutor_id"
 
   create_table "users", force: true do |t|
-    t.integer  "role"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"

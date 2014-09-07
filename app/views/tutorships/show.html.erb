@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @tutorship.tutor %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @tutorship.student %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @tutorship.status %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @tutorship.message %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @tutorship.subject %>
+</p>
+<br>
+<%= @tutorship.inspect %>
+<br>
+
+  <%= button_to "accept tutorship", accept_tutorships_path(tutorship: @tutorship), class: "btn btn-primary", data: { no_turbolink: true } %>  
+    </div>
+<br>
+
+<%= link_to 'Edit', edit_tutorship_path(@tutorship) %> |
+<%= link_to 'Back', tutorships_path %>

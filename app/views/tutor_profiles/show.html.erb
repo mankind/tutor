@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tutor_profile.user %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @tutor_profile.university %>
+</p>
+
+<p>
+  <strong>Degree subject:</strong>
+  <%= @tutor_profile.degree_subject %>
+</p>
+
+<p>
+  <strong>Teaching subject:</strong>
+  <%= @tutor_profile.teaching_subject %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @tutor_profile.location %>
+</p>
+
+<p>
+  <strong>About myself:</strong>
+  <%= @tutor_profile.about_myself %>
+</p>
+
+<p>
+  <strong>Tutoring approach:</strong>
+  <%= @tutor_profile.tutoring_approach %>
+</p>
+
+<p>
+  <strong>Teaching experience:</strong>
+  <%= @tutor_profile.teaching_experience %>
+</p>
+
+<p>
+  <strong>Extracurricular interests:</strong>
+  <%= @tutor_profile.extracurricular_interests %>
+</p>
+
+<br>
+<div class="centre">
+
+      <%= link_to "Enquiry", new_enquiry_path(tutor_profile: @tutor_profile.user), class: "btn btn-primary" %>
+
+<br>
+
+  <%= button_to "the true invite tutor button -use this", invite_tutorships_path(tutor_id: @tutor_profile.user), class: "btn btn-primary", data: { no_turbolink: true } %>  
+    </div>
+
+<br>
+
+      <%= link_to "old Invite Tutor", new_tutorship_path(tutor_id: @tutor_profile.user), class: "btn btn-primary", data: { no_turbolink: true } %>  
+    </div>
+
+       
+<br>
+
+
+<%= link_to 'Edit', edit_tutor_profile_path(@tutor_profile) %> |
+<%= link_to 'Back', tutor_profiles_path %>

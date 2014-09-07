@@ -1,0 +1,20 @@
+<h2> invited for tuorship </h2>
+
+<% @invitation_to_tutorship.each do | invite| %>
+
+  <p> Subject: </p>
+  <p><%= invite.subject  %> </p>
+
+  <p> Student name: </p>
+     <%= invite.student.name %> </p>
+<% end %>
+
+<h2> acepted tuorship </h2>
+<% @accepted_invites.each do | accept| %>
+
+  <p> Subject: </p>
+  <p><%= accept.subject  %> </p>
+
+  <p> Student name: </p>
+     <%= accept.student.name %> </p>
+<% end %>
