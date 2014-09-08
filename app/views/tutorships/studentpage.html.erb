@@ -1,7 +1,6 @@
 <h2> Accepted Tuition request you made </h2>
 
-<%= @a.inspect %>
 <% @a.each do |b| %>
  <%= b.subject %>
-<%= link_to 'Pay Tuition',  edit_tutorships_path(b) %>
+<%= link_to 'Pay Tuition',  edit_tutorship_path(b) %>
 <% end %>

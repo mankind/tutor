@@ -77,7 +77,7 @@ class TutorshipsController < ApplicationController
     @accepted_tutorship_request_for_student = Tutorship.where(student_id: current_user.id).where(status: Tutorship.statuses[:accepted]).to_a
 
    @a = current_user.tutorships_as_student.where(status: Tutorship.statuses[:accepted])
-
+   
   end
 
   # DELETE /tutorships/1
