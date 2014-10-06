@@ -60,7 +60,8 @@
       <%= link_to "old Invite Tutor", new_tutorship_path(tutor_id: @tutor_profile.user), class: "btn btn-primary", data: { no_turbolink: true } %>  
     </div>
 
-       
+ <br>
+    <%= link_to 'message tutor', new_message_path(user: @tutor_profile.user) %>
 <br>
 
 

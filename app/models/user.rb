@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
    has_many :enquiries, dependent: :destroy
 
    has_many :tutorships_as_tutor, class_name: 'Tutorship', foreign_key: :tutor_id, dependent: :destroy
-   has_many :tutors, class_name:  'User', through: :tutorship_as_tutor
+   has_many :tutors, class_name:  'User', through: :tutorships_as_tutor
     
    has_many :tutorships_as_student, class_name: 'Tutorship', foreign_key: :student_id
-   has_many :students, class_name: 'User', through: :student_as_tutor
+   has_many :students, class_name: 'User', through: :tutorships_as_student
 
    # invites asking this user to be a tutor
    has_many  :pending_invites_to_be_a_tutor,
